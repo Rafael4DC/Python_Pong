@@ -22,13 +22,15 @@ maze_structure = [
     "XXXXX  X"
 ]
 maze = Maze(width, height, maze_structure, screen)
-pacman = Paddle(screen)
-
+paddleL = Paddle(screen,20)
+paddleR = Paddle(screen,970)
 running = True
 while running:
-    pacman.move()
+    paddleL.move(pygame.K_w,pygame.K_s)
+    paddleR.move(pygame.K_UP, pygame.K_DOWN)
     screen.fill(background_color)
-    pacman.draw()
+    paddleL.draw()
+    paddleR.draw()
     clock.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

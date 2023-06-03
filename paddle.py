@@ -9,21 +9,21 @@ class Directions(Enum):
 
 
 class Paddle:
-    def __init__(self, screen):
+    def __init__(self, screen,position):
         self.screen = screen
         self.radius = 10
         self.speed = 10
         self.direction = Directions.Up.name
         self.color = (250, 200, 17)
-        self.rect = pygame.Rect(20, 250, 15, 100)
+        self.rect = pygame.Rect(position, 250, 15, 100)
 
     def draw(self):  # Alterar este desenho
         pygame.draw.rect(self.screen, self.color,self.rect)
 
-    def move(self):
+    def move(self,keyUp,keyDown):
         key = pygame.key.get_pressed()
 
-        if key[pygame.K_UP]:
+        if key[keyUp] and self.rect.y - self.speed > 0:
             self.rect.y -= self.speed
-        if key[pygame.K_DOWN]:
+        if key[keyDown] and self.rect.y + self.rect.height + self.speed < self.screen.get_height():
             self.rect.y += self.speed
