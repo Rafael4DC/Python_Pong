@@ -10,7 +10,7 @@ height = 600
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pong")
-PackmaIcon = pygame.image.load("images/estrla.png")
+PackmaIcon = pygame.image.load("images/packmaImg.png")
 pygame.display.set_icon(PackmaIcon)
 
 background_color = (211, 167, 219)
